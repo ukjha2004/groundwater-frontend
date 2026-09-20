@@ -157,7 +157,7 @@ function Dashboard({ setActivePage }) {
   const [loadingStats, setLoadingStats] = useState(true);
 
   useEffect(() => {
-    fetch("`${API_URL}/monitoring-data`")
+    fetch(`${API_URL}/monitoring-data`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch dashboard data");
@@ -165,6 +165,7 @@ function Dashboard({ setActivePage }) {
 
         return res.json();
       })
+
       .then((data) => {
         setStats({
           total_samples: data.total_samples,
@@ -416,7 +417,7 @@ function AnalyticsPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("`${API_URL}/monitoring-data`")
+    fetch(`${API_URL}/monitoring-data`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch analytics data");
@@ -793,7 +794,7 @@ function AlertCenterPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("`${API_URL}/monitoring-data`")
+    fetch(`${API_URL}/monitoring-data`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch alert data");
@@ -2067,9 +2068,8 @@ function PredictionPage() {
       );
 
 
-      const response = await fetch(
-        `${API_URL}/predict`,
-        {
+      
+        const response = await fetch(`${API_URL}/predict`, {
           method: "POST",
 
           headers: {
@@ -2431,7 +2431,7 @@ function MonitoringMap() {
 
   useEffect(() => {
 
-    fetch("`${API_URL}/monitoring-data`")
+    fetch(`${API_URL}/monitoring-data`)
 
       .then((res) => {
 
