@@ -2747,3 +2747,169 @@ td strong {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================
+   SERVER STATUS, LOADING STATES & FORM VALIDATION
+========================================================= */
+
+.status-dot.checking,
+.status-dot.waking {
+  background: #f0a83a;
+  box-shadow: 0 0 0 4px rgba(240, 168, 58, 0.15);
+  animation: statusPulse 1.2s ease-in-out infinite;
+}
+
+.status-dot.offline {
+  background: #e05a4f;
+  box-shadow: 0 0 0 4px rgba(224, 90, 79, 0.15);
+}
+
+@keyframes statusPulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.status-retry {
+  margin-left: 4px;
+  padding: 3px 10px;
+  border: 1px solid #e05a4f;
+  border-radius: 12px;
+  background: white;
+  color: #c2413a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.server-banner {
+  margin: 20px 34px 0;
+  padding: 13px 16px;
+  border: 1px solid #f1e1bb;
+  border-radius: 10px;
+  background: #fffaf0;
+  color: #6b5317;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.server-banner.offline {
+  border-color: #f3c9c4;
+  background: #fff5f4;
+  color: #8a2c24;
+}
+
+.load-state {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #475569;
+  text-align: center;
+}
+
+.load-state small {
+  color: #7b8a96;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #d9e8ea;
+  border-top-color: #0c666c;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.load-error p {
+  margin: 4px 0 10px;
+}
+
+.load-error button {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #0c666c;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.input-hint {
+  color: #8aa0a5;
+  font-size: 10px;
+}
+
+.input-field.invalid input {
+  border-color: #e05a4f;
+  background: #fff7f6;
+}
+
+.input-field.invalid label {
+  color: #c2413a;
+}
+
+.form-errors {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid #f3c9c4;
+  border-radius: 9px;
+  background: #fff5f4;
+  color: #8a2c24;
+  font-size: 13px;
+}
+
+.form-errors ul {
+  margin: 6px 0 0 18px;
+}
+
+@media (max-width: 760px) {
+  .server-banner {
+    margin: 16px 18px 0;
+  }
+}
+
+/* Stat cards on Analytics / Alerts / Model Insights:
+   label, value and caption on separate lines */
+.stat-card > div:last-child:not(.stat-description) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-card > div:last-child:not(.stat-description) span {
+  color: #587177;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-card > div:last-child:not(.stat-description) strong {
+  color: #0b2e33;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.stat-card > div:last-child:not(.stat-description) small {
+  color: #8aa0a5;
+  font-size: 12px;
+}
+
+/* Pipeline steps wrap instead of scrolling sideways */
+.pipeline-grid {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stats-grid {
+  margin-bottom: 20px;
+}
+
+.metrics-spread {
+  margin-top: 16px;
+}
